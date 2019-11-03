@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgZorroAntdModule, NZ_I18N, vi_VN } from 'ng-zorro-antd';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
 import { LienheComponent } from './lienhe/lienhe.component';
@@ -16,8 +17,11 @@ import { DoimatkhauComponent } from './doimatkhau/doimatkhau.component';
 import { DoittComponent } from './doitt/doitt.component';
 import { DanhmmhComponent } from './danhmmh/danhmmh.component';
 import { TracnghiemComponent } from './tracnghiem/tracnghiem.component';
+import { registerLocaleData } from '@angular/common';
+import vi from '@angular/common/locales/vi';
+//import { MyserviceService } from './myservice.service';
 
-
+registerLocaleData(vi)
 const appRoutes: Routes = [
   { path: 'trangchu', component:TrangchuComponent },
   { path: 'lienhe', component:LienheComponent },
@@ -30,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'doitt', component:DoittComponent},
   { path: 'danhmmh', component:DanhmmhComponent},
   { path: 'tracnghiem', component:TracnghiemComponent},
+
   // { path: 'heroes', component: HeroListComponent },
 ];
 @NgModule({
@@ -50,6 +55,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    NgZorroAntdModule,
+    NgxPaginationModule,
+    HttpClientModule,
+    //MyserviceService,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

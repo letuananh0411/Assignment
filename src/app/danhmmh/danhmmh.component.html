@@ -43,108 +43,43 @@
                 </nav>
         </div>
         <div class="row">
-            <div class="col-8">
-                <div class="row" style="padding-top: 40px">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://aum.edu.vn/sites/default/files/aum/tintuc/cong_nghe_thong_tin_0.jpg" class="card-img-top" alt="...">
+                <div class="col-md-8">
+                        <div class="col-md-6" style="float: left"
+                            *ngFor="let item of list | paginate: { itemsPerPage: 4, currentPage: t }">
+                            <div class="card">
+                                <img src="../../assets/images/logos/{{item.Logo}}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h2 class="card-title" style="color:darkviolet">ADVA</h2>
-                                    <a routerLink="/tracnghiem" class="btn btn-primary">Đến phần trắc nghiệm</a>
                                 </div>
+                                <ul class="list-group list-group-flush">
+                                    <button type="button" class="btn btn-secondary" onclick="ttt()"
+                                    routerLink="/tracnghiem/{{item.Id}}">{{item.Name}}
+                                    </button>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://aum.edu.vn/sites/default/files/aum/tintuc/cong_nghe_thong_tin_0.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h2 class="card-title" style="color:darkviolet">ADBS</h2>
-                                    <a routerLink="/tracnghiem" class="btn btn-primary">Đến phần trắc nghiệm</a>
-                                </div>
-                            </div>
+                       <div class="row">
+                          <div class="col-md-6 ml-auto" ><button class="btn btn-primary" (click)='M()'>Down</button> </div> 
+                        <div class="col-md-6 "><button class="btn btn-primary" (click)='N()'>Next</button></div>
+                       </div> 
+                       
+                </div>
+            <div class="col-4">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <ul class="list-group">
+                                <li class="list-group-item" data-toggle="collapse" data-target="#demo"><i
+                                        class="fa fa-align-left" style="font-size:24px" > Danh Mục Môn Học</i>
+                                    <div id="demo" class="collapse">
+                                        <ul class="list-group" *ngFor="let item of list">
+                                            <a class="list-group-item list-group-item-action">{{item.Name}}</a>
+                                        </ul>
+                                    </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 40px">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="http://aum.edu.vn/sites/default/files/aum/tintuc/cong_nghe_thong_tin_0.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h2 class="card-title" style="color:darkviolet">ADTE</h2>
-                                        <a routerLink="/tracnghiem" class="btn btn-primary">Đến phần trắc nghiệm</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="http://aum.edu.vn/sites/default/files/aum/tintuc/cong_nghe_thong_tin_0.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h2 class="card-title" style="color:darkviolet">ADUI</h2>
-                                        <a routerLink="/tracnghiem" class="btn btn-primary">Đến phần trắc nghiệm</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 40px">
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <img src="http://aum.edu.vn/sites/default/files/aum/tintuc/cong_nghe_thong_tin_0.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h2 class="card-title" style="color:darkviolet">ASNE</h2>
-                                            <a routerLink="/tracnghiem" class="btn btn-primary">Đến phần trắc nghiệm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <img src="http://aum.edu.vn/sites/default/files/aum/tintuc/cong_nghe_thong_tin_0.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h2 class="card-title" style="color:darkviolet">CLCO</h2>
-                                            <a routerLink="/tracnghiem" class="btn btn-primary">Đến phần trắc nghiệm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-            </div>
-            <div class="col-4">
-                    <div class="list-group">
-                            <a routerLink="/danhmmh" class="list-group-item list-group-item-action active">
-                              Danh mục môn thi
-                            </a>
-                            <a class="list-group-item list-group-item-action">ADVA</a>
-                            <a class="list-group-item list-group-item-action">ADBS</a>
-                            <a class="list-group-item list-group-item-action">ADTE</a>
-                            <a class="list-group-item list-group-item-action">ADUI</a>
-                            <a class="list-group-item list-group-item-action">ASNE</a>
-                            <a class="list-group-item list-group-item-action">CLCO</a>
-                            <a class="list-group-item list-group-item-action">DBAV</a>
-                            <a class="list-group-item list-group-item-action">DBEBS</a>
-                            <a class="list-group-item list-group-item-action">GAME</a>
-                            <a class="list-group-item list-group-item-action">HTCS</a>
-                            <a class="list-group-item list-group-item-action">INMA</a>
-                            <a class="list-group-item list-group-item-action">JAAV</a>
-                            <a class="list-group-item list-group-item-action">JABS</a>
-                            <a class="list-group-item list-group-item-action">JSPR</a>
-                            <a class="list-group-item list-group-item-action">LAVO</a>
-                            <a class="list-group-item list-group-item-action">MOWE</a>
-                            <a class="list-group-item list-group-item-action">PHPP</a>
-                            <a class="list-group-item list-group-item-action">PMAG</a>
-                            <a class="list-group-item list-group-item-action">TEMPLATE</a>
-                            <a class="list-group-item list-group-item-action">VBPR</a>
-                            <a class="list-group-item list-group-item-action">WEBU</a>
-                    </div>
             </div>
         </div>
     </div>
